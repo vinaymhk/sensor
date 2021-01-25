@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  cursor: pointer;
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn, .dropbtn:focus {
+  background-color: red;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.show {
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="/sensor/index.html">Home</a>
+  <a href="#news">News</a>
+  <div class="dropdown">
+  <button class="dropbtn" onclick="myFunction()">Select a City
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-content" id="myDropdown">
+    <a href="/sensor/mumbai.html">Mumbai</a>
+	<a href="/sensor/delhi.html">Delhi</a>
+  </div>
+  </div> 
+</div>
+
+<h3>Delhi</h3>
+
+<label for="sensor">Choose a Sensor:</label>
+  <select id="sendor">
+    <option value="bno">Billabong Noida - Outdoor</option>
+    <option value="bni">Billabong Noida - Indoor</option>
+    <option value="mpso">Modern Public School - Outdoor</option>
+    <option value="dgi">DAV Gurgaon - Indoor </option>
+	<option value="ro">Ramjas - Outdoor</option>
+	<option value="nmco">National Media Center - Outdoor</option>
+	<option value="lr2">Lodhi Road 2</option>
+	
+  </select>
+  
+  <button type="button" onclick="GetSelectedValue()">Submit</button>
+
+  
+  <p id="result"></p>
+<div id='PurpleAirWidget_40073_module_AQI_conversion_C0_average_10_layer_standard' style='display: none;'>Loading PurpleAir Widget...</div>
+<script src='https://www.purpleair.com/pa.widget.js?key=0MVS6NWTLRS7FOSZ&module=AQI&conversion=C0&average=10&layer=standard&container=PurpleAirWidget_40073_module_AQI_conversion_C0_average_10_layer_standard'></script>
+
+<div id='PurpleAirWidget_40109_module_AQI_conversion_C0_average_10_layer_standard'style='display: none;'>Loading PurpleAir Widget...</div>
+<script src='https://www.purpleair.com/pa.widget.js?key=NZXPS08FOI472JZR&module=AQI&conversion=C0&average=10&layer=standard&container=PurpleAirWidget_40109_module_AQI_conversion_C0_average_10_layer_standard'></script>
+
+<div id='PurpleAirWidget_40257_module_AQI_conversion_C0_average_10_layer_standard'style='display: none;'>Loading PurpleAir Widget...</div>
+<script src='https://www.purpleair.com/pa.widget.js?key=LK9QO13LVQDHB8PV&module=AQI&conversion=C0&average=10&layer=standard&container=PurpleAirWidget_40257_module_AQI_conversion_C0_average_10_layer_standard'></script>
+
+<div id='PurpleAirWidget_40295_module_AQI_conversion_C0_average_10_layer_standard'style='display: none;'>Loading PurpleAir Widget...</div>
+<script src='https://www.purpleair.com/pa.widget.js?key=E20WWMZ3R0IQJDUC&module=AQI&conversion=C0&average=10&layer=standard&container=PurpleAirWidget_40295_module_AQI_conversion_C0_average_10_layer_standard'></script>
+
+<div id='PurpleAirWidget_40211_module_AQI_conversion_C0_average_10_layer_standard'style='display: none;'>Loading PurpleAir Widget...</div>
+<script src='https://www.purpleair.com/pa.widget.js?key=20ADVNPLZ18ND9J2&module=AQI&conversion=C0&average=10&layer=standard&container=PurpleAirWidget_40211_module_AQI_conversion_C0_average_10_layer_standard'></script>
+
+<div id='PurpleAirWidget_40327_module_AQI_conversion_C0_average_10_layer_standard'style='display: none;'>Loading PurpleAir Widget...</div>
+<script src='https://www.purpleair.com/pa.widget.js?key=EXX1C099EK7XFECK&module=AQI&conversion=C0&average=10&layer=standard&container=PurpleAirWidget_40327_module_AQI_conversion_C0_average_10_layer_standard'></script>
+
+<div id='PurpleAirWidget_40119_module_AQI_conversion_C0_average_10_layer_standard'style='display: none;'>Loading PurpleAir Widget...</div>
+<script src='https://www.purpleair.com/pa.widget.js?key=M266WH08SX8SGC72&module=AQI&conversion=C0&average=10&layer=standard&container=PurpleAirWidget_40119_module_AQI_conversion_C0_average_10_layer_standard'></script>
+
+
+
+  
+  <script>
+
+            function GetSelectedValue(){
+                var e = document.getElementById("sendor");
+                var result = e.options[e.selectedIndex].value;
+					
+					
+				if(result ==="bno")  
+				{
+					
+				document.getElementById("PurpleAirWidget_40073_module_AQI_conversion_C0_average_10_layer_standard").style = "display:block";
+				}
+				else if (result ==="bni")  
+				{	
+				document.getElementById("PurpleAirWidget_40109_module_AQI_conversion_C0_average_10_layer_standard").style = "display:block";
+				}
+				
+				else if (result ==="mpso")  
+				{	
+				document.getElementById("PurpleAirWidget_40257_module_AQI_conversion_C0_average_10_layer_standard").style = "display:block";
+					
+				}
+				else if (result ==="dgi")  
+				{	
+				document.getElementById("PurpleAirWidget_40295_module_AQI_conversion_C0_average_10_layer_standard").style = "display:block";
+					
+				}
+				else if (result ==="ro")  
+				{	
+				document.getElementById("PurpleAirWidget_40211_module_AQI_conversion_C0_average_10_layer_standard").style = "display:block";
+					
+				}
+				else if (result ==="nmco")  
+				{	
+				document.getElementById("PurpleAirWidget_40327_module_AQI_conversion_C0_average_10_layer_standard").style = "display:block";
+					
+				}
+				else if (result ==="lr2")  
+				{	
+				document.getElementById("PurpleAirWidget_40119_module_AQI_conversion_C0_average_10_layer_standard").style = "display:block";
+					
+				}
+			
+				
+            }
+		</script>
+<script>
+/* When the user clicks on the button, 
+toggle between hiding and showing the dropdown content */
+function myFunction() {
+  document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown if the user clicks outside of it
+window.onclick = function(e) {
+  if (!e.target.matches('.dropbtn')) {
+  var myDropdown = document.getElementById("myDropdown");
+    if (myDropdown.classList.contains('show')) {
+      myDropdown.classList.remove('show');
+    }
+  }
+}
+</script>
+</body>
+</html>
